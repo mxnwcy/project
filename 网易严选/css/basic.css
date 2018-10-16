@@ -1,0 +1,417 @@
+﻿/*头部黑色导航部分*/
+body{
+	min-width:1090px;
+}
+.header .top-nav{
+	background-color: #333;
+	height: 36px;
+}
+.header .top-nav a{
+	color: #ccc;
+	font-size: 12px;
+	line-height: 36px;
+}
+.header .top-nav a:hover{
+	color: white;
+}
+.header .t-n-center{
+	margin: 0 auto;
+	width: 1090px;
+}
+.t-n-center div:nth-child(1){
+	float: left;
+	margin-right: 20px;
+}
+.header .top-nav .laba{
+	color: #b4a078;
+	text-decoration: underline;
+}
+.t-n-center div:nth-child(2){
+	float: right;
+	/*width: 612px;*/
+}
+.t-n-center div:nth-child(2) li{
+	float: left;
+	margin-right: 10px;
+	line-height: 36px;
+	color: #ccc;
+}
+.header .t-n-center .kh{
+	position: relative;
+}
+.header .t-n-center .khfw{
+	display: none;
+}
+.header .t-n-right ul>li:hover>.khfw {
+	display: block;
+}
+.header .t-n-center .khfw ul{
+	width: 50px;
+	float: none;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 36px;
+	/*right: 12%;*/
+	left: 80%;
+	padding: 0 20px;
+	background-color: white;
+	z-index: 10;
+
+}
+.header .t-n-center .khfw li{
+	float: none;
+	text-align: center;
+	margin:0 auto; 
+	border-bottom: 1px solid #ccc
+	
+}
+.header .t-n-center .khfw li:last-child{
+	border: none;
+}
+.header .t-n-center .khfw li a{
+	color:#333;
+}
+.header .t-n-center .khfw li a:hover{
+	color: #b4a078;
+}
+
+.header .t-n-right .app{
+	display: none;
+}
+.header .t-n-right ul>li a:hover>.app {
+	display: block;
+}
+
+.header .t-n-right .app{
+	width: 125px;
+	height: 145px;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 36px;
+	right: 100px;
+	padding: 10px;
+	color: #b4a078;
+	background-color: white;
+	z-index: 10;
+}
+.header .t-n-right .app img{
+	width: 100%;
+	display: block;
+}
+/*logo部分*/
+.h-logo{
+	
+	padding-top: 42px;
+}
+.h-l-center{
+	width: 1090px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	height: 100px;
+	position: relative;
+	
+}
+.h-l-center .logo{
+	width: 197px;
+	margin: 0 auto 42px;
+}
+.h-l-center .search input{
+	border: none;
+	border-bottom: 1px solid #d8cebc;
+	width: 230px;
+	position: absolute;
+	top: 42px;
+	left: 750px;
+}
+.h-l-center .search .icon-sousuo{
+	position: absolute;
+	top: 40px;
+	left: 990px;
+	color: #b5a178;
+	font-size: 20px;
+}
+.h-l-center .search .icon-gouwuche{
+	position: absolute;
+	top: 39px;
+	left: 1020px;
+	color: #b5a178;
+	font-size: 22px;
+}
+.h-l-center .search div{
+	width: 15px;
+	height: 15px;
+	background: #d4282d;
+	border-radius: 50px;
+	position: absolute;
+	top: 35px;
+	left: 1035px;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+}
+.nav{
+	box-sizing: border-box;
+	position: sticky;
+	top: 0;
+	height: 60px;
+	background: #fff;
+	z-index: 9;
+	padding-top: 15px;
+	box-shadow: 0px 2px 3px rgba(0,0,0,.1);
+
+}
+.nav>div{
+	height: 25px;
+
+}
+.nav ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	width: 1090px;
+	margin: 0 auto;
+}
+.nav ul>li{
+	font-weight: bold;
+	line-height: 25px;
+}
+.nav ul>li>a{
+	color: #000;
+}
+.nav>div>ul>li>a:hover{
+	color: #b4a078;	
+	border-bottom: 3px solid #b4a078;
+}
+.nav>div>ul>li:nth-child(1)>a{
+	color: #b4a078;	
+	border-bottom: 3px solid #b4a078;
+
+}
+.nav>div>ul>li:nth-child(12){
+	color: #ccc;
+	font-weight: lighter;
+}
+.nav>div>ul>li>a:hover>.hua{
+	display: block;
+}
+.nav .hua{
+	display: none;
+	background: #fff;
+	position:absolute;
+	top: 40px;
+	right: 0;
+	left: 0;
+	box-shadow:0px 2px 3px #ccc;
+
+}
+.nav .hua table{
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	border-spacing: 25px;
+	table-layout: fixed;
+}
+.nav .hua table a:hover{
+	color: #b4a078;	
+
+}
+
+
+/*右边广告的css*/
+
+aside{
+	position: fixed;
+	top: 0;
+	right: 0;
+	background: #fff;
+	width: 70px;
+	z-index: 31;
+
+}
+aside div{
+	border-bottom: 1px solid #ccc;
+	box-sizing: border-box;
+}
+aside .chang{
+	height:140px;
+}
+aside .fang{
+height: 80px;
+	text-align: center;
+	padding-top: 10px;
+}
+aside .liwu{
+	padding-top: 20px;
+
+}
+aside .fang .iconfont{
+	font-size: 40px;
+
+}
+aside .fang .icon-liwu{
+	font-size: 32px;
+}
+aside a{
+	color: #666666;
+}
+aside a:hover{
+	color: #b4a078;
+}
+aside .chang2{
+	text-align: center;
+}
+aside .chang2 span:first-child{
+	font-size: 12px;
+}
+aside .chang2 span:last-child{
+	font-size: 12px;
+	color: #bc3b3b;
+}
+aside .chang2 img{
+	width: 100%;
+	height: 100%;
+	
+}
+
+
+
+/*footer的css*/
+footer::before{
+	content: "";
+	display: block;
+	clear: both;
+}
+footer .f-wrap{
+	width: 1090px;
+	display: flex;
+	margin: 50px auto;
+	color: #333333;
+
+
+}
+footer .white{
+	background: #fff;
+}
+footer .white  h4{
+	/*color: #333333;*/
+	font-weight: normal;
+	font-size: 16px;
+}
+footer .white .yi{
+	flex: 1;
+	border-right: 1px solid #ccc;
+	text-align: center;
+}
+
+footer .white .yi>div{
+	padding-top: 20px;
+	display: flex;
+	justify-content: center;
+	/*color: #333333;*/
+	font-size: 14px;
+
+
+}
+footer .white .yi>div>div{
+	box-sizing: border-box;
+	border: 1.5px solid #e8e8e8;
+	width: 80px;
+	height: 100px;
+	margin: 0 20px;
+	padding-top: 15px;
+
+
+}
+footer .white .yi .iconfont{
+	font-size: 40px;
+	color: #666666;
+}
+footer .white .er{
+	box-sizing: border-box;
+	flex: 1;
+	border-right: 1px solid #ccc;
+	text-align: center;
+}
+footer .white .er>div{
+	margin: 20px 30px;
+}
+footer .white .er>div:last-child{
+	text-align: left;
+}
+footer .white .er>div:last-child .iconfont{
+	font-size: 30px;
+}
+footer .white .er>div:last-child .icon-yixin{
+	color: #0fab83;
+}
+footer .white .er>div:last-child .icon-weixin{
+	color:#4bb341;
+}
+footer .white .er>div:last-child .icon-weibo{
+	color:#e42f36;
+}
+
+
+footer .white .san{
+	flex: 1;
+	text-align: center;
+}
+footer .white .san img{
+	margin:30px auto 5px;
+}
+footer .white .san span{
+	font-size: 12px;
+	color:#b4a078; 
+}
+
+
+footer .hei{
+	background: #414141;	
+}
+footer .f-wrapp{
+	width: 1090px;
+	margin: 50px auto 0;
+	color: #333333;
+	padding: 30px 0 ;
+	text-align: center;
+}
+.f-wrapp>div:first-child{
+	width: 919px;
+	height: 69px;
+	background: url(../images/footer-icon.fw.png);
+	margin: 0 auto 30px;
+}
+.f-wrapp>div:nth-child(2){
+	padding: 30px 0 5px;
+	border-top: 1px solid #4f4f4f;
+}
+.f-wrapp>div:nth-child(2) ul{
+	display: flex;
+	width: 650px;
+	margin: 0 auto;
+}
+.f-wrapp>div:nth-child(2) ul li{
+	border-right: 0.5px solid #999;
+	padding:0 10px;
+	line-height: 12px;
+}
+.f-wrapp>div:nth-child(2) ul li:last-child{
+	border: none;
+}
+.f-wrapp>div:nth-child(2) ul li a{
+	color: #999;
+	font-size: 12px;
+}
+.f-wrapp span,span>a{
+	color: #999;
+	font-size: 12px;
+
+}
+
+section{
+	width:100px;
+	height: 100px;
+	background: #333;
+	opacity: 0.3;
+}
