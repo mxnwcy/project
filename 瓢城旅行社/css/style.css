@@ -1,0 +1,185 @@
+/* 
+* @Author: Marte
+* @Date:   2017-11-29 08:15:18
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-12-19 21:45:42
+*/
+@charset "utf-8";
+body,h2,ul{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+}
+body>h1{
+    display: none;
+}
+body{
+    background-color: #fff;
+}
+a{
+    text-decoration: none;
+}
+#header{
+    width: 100%;
+    min-width:1263px;
+    height: 70px;
+    background: #333;
+}
+#header .center{
+    width: 1263px;
+    height: 70px;
+    margin: 0 auto;
+
+}
+.logo{
+    width: 240px;
+    height: 70px;
+    background: url(../images/logo.png) no-repeat;
+    text-indent: -9999px; 
+    /*文字缩进，文字就看不到了*/
+    float: left;
+}
+.link{
+    float: right;
+    width: 650px;
+}
+.link>h2{
+    display: none;
+}
+.link>ul>li{
+    float: left;
+    width: 120px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+}
+.link>ul>li>a{
+    color: #eee;
+    display: block;   
+    /*a标签为行内元素不能设置高宽，转换为块级元素*/
+}
+.active>a,.link>ul>li>a:hover /*前半截是直接让首页为黑色，后半截指到上面为黑色*/
+{
+    background: #000;
+}
+#search{
+    width: 100%;
+    min-width: 1263px;
+    height: 600px;
+    background: url(../images/search.jpg) no-repeat center;
+    position: relative;
+}
+#search .center{
+    width: 600px;
+    height: 60px;
+    background-color:black;
+    border-radius: 10px;/*边变圆*/
+    opacity: 0.6;/*透明度*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -30px 0 0 -300px;
+}
+#search .search{
+    width: 446px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -27px 0 0 -295px;
+    border: 1px solid #666 ;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #666;
+    padding: 0 10px;
+    outline: none;
+}
+#search .button{
+    width: 120px;
+    height: 54px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -27px 0 0 176px;
+    cursor: pointer;  /*指上面变成手的样子*/
+    font-size: 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: #eee;
+    outline: none;  /*去掉框。不去的话一点上有一个蓝色的框*/
+}
+#tour {
+    width: 1263px;
+    height: 1150px;
+    /*background-color: #ccc;*/
+    margin: 30px auto;
+    text-align: center;
+}
+#tour .center h2 {
+    font-size: 45px;
+    letter-spacing: 2px;
+    color: #666;
+    margin: 10px 0;
+}
+#tour .center p {
+    color: #666;
+    margin: 10px 0;
+}
+#tour figure {
+    border: 1px solid #ddd;
+    display: inline-block;
+    padding: 4px;
+    border-radius: 4px;
+    margin: 15px 12px;
+    width: 380px;
+    text-align: left;
+    position: relative;
+}
+#tour figure img {
+    vertical-align: middle;
+}
+#tour figcaption {
+    color: #777;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 7px 0 5px 0;
+}
+#tour .info {
+    padding: 5px 0 0 0;
+}
+#tour .title {
+    color: #333;
+    font-weight: normal;
+}
+#tour .sat {
+    float: right;
+    font-size: 13px;
+    color: #999;
+    font-style: normal;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+#tour .price {
+    color: #f60;
+    font-size: 14px;
+}
+#tour .price strong {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+#tour .type {
+    width: 90px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    background-color: #59b200;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}

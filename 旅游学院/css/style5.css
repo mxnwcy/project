@@ -1,0 +1,169 @@
+/* 
+* @Author: Marte
+* @Date:   2017-12-27 21:59:02
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-12-28 00:15:13
+*/
+@charset "utf-8";
+.zxly{
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    width: 1000px;
+}
+.zxly hr{
+    width: 1000px;  
+}
+
+.zxly b{
+    position:absolute;
+    top: -3px;
+    left: 30px;
+    font-family: 楷体;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+
+    .container{
+        margin: 0 auto;
+        position:absolute;
+        top: 300px;
+        width: 1000px;
+    }
+    .commentbox{
+        width: 900px;
+        margin: 50px auto;
+    }
+    .mytextarea {
+        width: 100%;
+        overflow: auto;
+        word-break: break-all;
+        height: 100px;
+        color: #000;
+        font-size: 1em;
+        resize: none;
+    }
+    .comment-list{
+        width: 900px;
+        margin: 20px auto;
+        clear: both;
+        padding-top: 20px;
+    }
+    .comment-list .comment-info{
+        position: relative;
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+    .comment-list .comment-info header{
+        width: 10%;
+        position: absolute;
+    }
+    .comment-list .comment-info header img{
+        width: 100%;
+        border-radius: 50%;
+        padding: 5px;
+    }
+    .comment-list .comment-info .comment-right{
+        padding:5px 0px 5px 11%; 
+    }
+    .comment-list .comment-info .comment-right h3{
+        margin: 5px 0px;
+    }
+    .comment-list .comment-info .comment-right .comment-content-header{
+        height: 25px;
+    }
+    .comment-list .comment-info .comment-right .comment-content-header span,.comment-list .comment-info .comment-right .comment-content-footer span{
+        padding-right: 2em;
+        color: #aaa;
+    }
+    .comment-list .comment-info .comment-right .comment-content-header span,.comment-list .comment-info .comment-right .comment-content-footer span.reply-btn,.send,.reply-list-btn{
+        cursor: pointer;
+    }
+    .comment-list .comment-info .comment-right .reply-list {
+        border-left: 3px solid #ccc;
+        padding-left: 7px;
+    }
+    .comment-list .comment-info .comment-right .reply-list .reply{
+        border-bottom: 1px dashed #ccc;
+    }
+    .comment-list .comment-info .comment-right .reply-list .reply div span{
+        padding-left: 10px;
+    }
+    .comment-list .comment-info .comment-right .reply-list .reply p span{
+        padding-right: 2em;
+        color: #aaa;
+    }
+.pull-right {
+    float: right ;
+}
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+  
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+#footer{
+    background:#4876FF;
+    width: 1100px;
+    height: 220px;
+    position:absolute;
+    top: 1400px;
+
+}
+.gx{
+    font-size: 18px;
+    color:white;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+.lj{
+    font-size: 18px;
+    color:white;
+    position: absolute;
+    left: 370px;
+    top:50px;
+}
+#znjs{
+    font-size: 18px;
+    color:white;
+    position: absolute;
+    left: 740px;
+    top: 50px;
+}
+.bq{
+    color:white;
+    position: absolute;
+    left: 380px;
+    top: 140px;
+    font-size: 14px;
+}
+.ewm1{
+    position: absolute;
+    left: 200px;
+    top: 100px;
+}
+.ewm2{
+    position: absolute;
+    left: 750px;
+    top: 100px;
+}

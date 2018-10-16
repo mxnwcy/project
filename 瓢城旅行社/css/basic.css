@@ -1,0 +1,112 @@
+/* 
+* @Author: Marte
+* @Date:   2017-11-29 08:15:18
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-12-13 08:18:32
+*/
+@charset "utf-8";
+body,h2,ul{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+}
+body>h1{
+    display: none;
+}
+body{
+    background-color: #fff;
+}
+a{
+    text-decoration: none;
+}
+#header{
+    width: 100%;
+    min-width:1263px;
+    height: 70px;
+    background: #333;
+}
+#header .center{
+    width: 1263px;
+    height: 70px;
+    margin: 0 auto;
+
+}
+.logo{
+    width: 240px;
+    height: 70px;
+    background: url(../images/logo.png) no-repeat;
+    text-indent: -9999px; 
+    /*文字缩进，文字就看不到了*/
+    float: left;
+    margin: 0;
+}
+.link{
+    float: right;
+    width: 650px;
+}
+.link>h2{
+    display: none;
+}
+.link>ul>li{
+    float: left;
+    width: 120px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+}
+.link>ul>li>a{
+    color: #eee;
+    display: block;   
+    /*a标签为行内元素不能设置高宽，转换为块级元素*/
+}
+.active>a,.link>ul>li>a:hover /*前半截是直接让首页为黑色，后半截指到上面为黑色*/
+{
+    background: #000;
+}
+
+#footer{
+    height: 360px;
+    background: #222;
+    clear: both;
+}
+#footer .top{
+    width: 1263px;
+    height: 320px;
+    margin: 0 auto;
+    text-align: center;
+}
+#footer .block{
+    width: 380px;
+    height: 320px;
+    display: inline-block;
+    color: #ccc;
+    text-align: left;
+    vertical-align: top;
+}
+#footer h2{
+    font-weight: normal;
+    font-size: 24px;
+    padding: 20px 0 0 20px;
+
+}
+#footer hr{
+    width: 90%;
+    border: 1px dashed #333;
+}
+#footer ul{
+    color: #666;
+    font-size: 18px;
+    line-height: 2;
+    text-indent: 20px;
+}
+
+#footer .bottom{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: #777;
+    background-color: #000;
+    border-top: 1px solid #444;
+}

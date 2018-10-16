@@ -1,0 +1,143 @@
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: rgba(246, 247, 249, 1);
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+.big::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.content{
+	width: 1000px;
+	margin: 0 auto;
+}
+.content::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*左边的导航*/
+.leftDiv{
+	background-color: rgba(40, 40, 48, 1);
+	width: 180px;
+	min-height: 800px;
+	color: #ffffff;
+	float: left;
+}
+/*导航最上面的logo*/
+.logo{
+	background: #3d556d;
+	height: 38px;
+
+	padding-left: 20px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.logo img{
+	margin-right: 20px;
+}
+.logo span, .logo img{
+	line-height: 38px;
+}
+/*导航的菜单*/
+.contentLeft{
+	text-align: left;
+	margin-top: 38px;
+}
+.contentLeft>ul>li{
+	border-bottom: 1px solid #333; 
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+	color: #fff;
+	position: relative;
+	font-size: 14px;
+}
+.contentLeft .iconfont{
+	padding: 0 10px 0 15px;
+}
+.contentLeft .icon-iconfontjiantou2{
+	position: absolute;
+	right: 10px;
+	top: 0;
+}
+/*右边的内容*/
+.rightDiv{
+	float: left;
+	width: 820px;
+	min-height: 800px;
+	border-right: 1px solid #ccc;
+	background: #f0f0f0;
+	box-sizing: border-box;
+}
+.rightDiv>.top{
+	padding: 0 10px;
+	height: 38px;
+	background: #fff;
+	line-height: 38px;
+	position: relative;
+}
+.rightDiv>.top>i{
+	padding: 0 30px 0 0;
+	color: #666666;
+	font-size: 22px;
+}
+.rightDiv>.top>.up{
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	color: #fff;
+	text-align: center;
+	line-height: 15px;
+	font-size: 12px;
+	background: #e05140;
+	position: absolute;
+	top: 6px;
+	left: 75px;
+}
+.rightDiv>.top>.touxiang{
+	margin: 0 0 8px 550px;
+	
+}
+.rightDiv>.top>span{
+	color: #666666;
+	font-size: 12px;
+}
+.rightDiv>.contentRight{
+	margin: 15px 0;
+	/*background: #fff;*/
+	border-radius: 5px;
+	min-height: 700px;
+	/*padding: 13px 0 0 10px;*/
+}
+
+/*按钮的样式*/
+button{
+	height: 28px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	line-height: 28px;
+	padding: 0 20px;
+	background: #68b828;
+	border-radius: 5px;
+	border: none;
+	margin:0 7px 7px 0;
+}
+
+/*清除浮动*/
+.clear{
+	content: "";
+	/*display: block;*/
+	clear: both;
+}

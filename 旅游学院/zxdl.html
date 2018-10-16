@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <title>在线登录</title>
+        <link rel="stylesheet" type="text/css" href="css/style6.css" />
+        <link rel="stylesheet" type="text/css" href="css/basic.css" />
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript"  src="js/nav.js"></script>
+
+        <script type="text/javascript" src="js/top.js"></script>
+        <!-- 登录 -->
+        <script src="js/jquery.min2.js"></script>
+    </head>
+    <body>
+    <header>
+        <h1>兰州城市学院-旅游学院</h1>
+        <div id="logo">
+        <embed src="img/header.swf" width="880px" height=" 180px" type="" wmode="transparent"/>
+        <ul>
+            <li><a href="http://www.lzcu.edu.cn/">学校首页</a></li>
+            <li><a href="#">收藏本站</a></li>
+            <li><a href="#">设为首页</a></li>
+        </ul>
+        
+        </div>
+<div id="top_bg">
+    <div class="top">
+        <div class="nav_z">
+            <ul id="navul" class="cl">
+                <li>
+                    <a href="index.html">网站首页</a>     
+                </li>
+                <li>
+                    <a href="xygk.html">学院概况</a>
+                    <ul>
+                        <li><a href="xyjj.html">学院简介</a></li>
+                        <li><a href="ldbz.html">领导班子</a></li>
+                        <li><a href="zzjg.html">组织机构</a></li>
+                        <li><a href="zyjj.html">专业简介</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="szdw.html">师资队伍</a>
+                    <ul>
+                        <li><a href="lyglx.html">旅游管理系</a></li>
+                        <li><a href="gjcwx.html">国际乘务系</a></li>
+                        <li><a href="jdglx.html">酒店管理系</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="jxgz.html">教学工作</a>
+                    <ul>
+                        <li><a href="kcjs.html">课程建设</a></li>
+                        <li><a href="jxcg.html">教学成果</a></li>
+                        <li><a href="jxgl.html">教学管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kxyj.html">科学研究</a>
+                    <ul>
+                        <li><a href="xsyj.html">学术研究</a></li>
+                        <li><a href="kycg.html">科研成果</a></li>
+                        <li><a href="xkjs.html">学科建设</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="zysx.html">专业实习</a>
+                    <ul>
+                        <li><a href="jdsx.html">酒店实习</a></li>
+                        <li><a href="cwsx.html">乘务实习</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="djgz.html">党建工作</a>
+                    <ul>
+                        <li><a href="dwzzjg.html">党委组织机构</a></li>
+                        <li><a href="dwgzyhd.html">党委工作与活动</a></li>
+                        <li><a href="zbsh.html">支部生活</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="txjy.html">团学工作</a>
+                    <ul>
+                        <li><a href="xsgl.html">学生管理</a></li>
+                        <li><a href="tzz.html">团总支</a></li>
+                        <li><a href="xsh.html">学生会</a></li>
+                        <li><a href="sthd.html">社团活动</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="zsjy.html">招生就业</a>
+                </li>
+            </ul>
+        </div>
+        <script  type="text/javascript"> 
+             $(".navbg").capacityFixed();
+        </script>
+    </div>
+</div>
+    </header>
+<div class="floating_ck">
+    <dl>
+        <dt></dt>
+        <dd class="words">
+            <span><a href="zxdl.html">在线登录</a></span>      
+        </dd>
+        <dd class="words">
+            <span><a href="zxly.html">在线留言</a></span>      
+        </dd>
+        <dd class="quote">
+            <span><a href="index.html">网站首页</a></span>
+        </dd>
+       
+        <dd class="return">
+            <span onClick="gotoTop();return false;">返回顶部</span>
+        </dd>
+    </dl>
+</div>
+
+
+
+<div class="wrap flex-c-c">
+  <form action="" method="" class="flex-c-c">
+    <ul class="select__list">
+      <li id="js-usr-rtn" class="select__label">登录</li>
+      <li id="js-usr-new" class="select__label select__label--active">注册</li>
+      <li id="js-usr-rst" class="select__label">忘记密码</li>
+    </ul>
+    <span class="pointer"></span>
+    <input type="email" placeholder="邮箱" class="ui-field" id="js-field__email" />
+    <input type="password" placeholder="密码" class="ui-field" id="js-field__pass" />
+    <input type="password" placeholder="确认密码" class="ui-field" id="js-field__r-pass" />
+    <button id="js-btn" class="ui-button --usr-new"></button>
+  </form>
+</div>
+
+<script>
+//to-do. dry-up & remove jq
+$('.select__label').click(function() {
+  $('.select__label').removeClass('select__label--active');
+  $(this).addClass('select__label--active');
+});
+
+$('#js-usr-rtn').click(function() {
+  $('#js-btn, .pointer, #js-field__pass').removeClass('--usr-new --usr-rst ui-field--hidden');
+  $('#js-btn, .pointer').addClass('--usr-rtn');
+  $('#js-field__r-pass').addClass('ui-field--hidden');
+});
+$('#js-usr-new').click(function() {
+  $('#js-btn, .pointer, #js-field__r-pass, #js-field__pass').removeClass('--usr-rtn --usr-rst ui-field--hidden');
+  $('#js-btn').addClass('--usr-new');
+});
+$('#js-usr-rst').click(function() {
+  $('#js-btn, .pointer').removeClass('--usr-rtn --usr-new');
+  $('#js-btn, .pointer').addClass('--usr-rst');
+  $('#js-field__r-pass, #js-field__pass').addClass('ui-field--hidden');
+});
+</script>
+
+
+
+
+    <footer>
+      <div class="gx">
+            省内高校：
+            <select name="sp" id="" >
+              <optgroup label="--请您选择--">
+                <option value="ld">--请您选择--</option>
+                <option value="ld">兰州大学</option>
+                <option value="ld">兰州理工大学</option>
+                <option value="ld">兰州交通大学</option>
+                <option value="ld">兰州商学院</option>
+                <option value="ld">甘肃农业大学</option>
+                <option value="ld">西北民族大学</option>
+                <option value="ld">甘肃政法学院</option>
+                <option value="ld">西北师范大学</option>
+                <option value="ld">甘肃中医学院</option>
+                <option value="ld">河西学院</option><option value="ld">天水师范学院</option><option value="ld">陇东学院</option>
+                <option value="ld">甘肃民族师范学院</option>
+                <option value="ld">甘肃联合大学</option>
+                <option value="ld">甘肃广播电视大学</option>
+            </optgroup>
+            </select>
+        </div>
+        <div class="lj">
+            常用链接：
+            <select name="sp" id="" >
+              <optgroup label="--请您选择--">
+                <option value="ld">--请您选择--</option>
+                <option value="ld">中华人民共和国教育部</option>
+                <option value="ld">国家自然科学基金委员会</option>
+                <option value="ld">全国哲学社会规划办公室</option>
+                <option value="ld">甘肃省教育厅</option>
+                <option value="ld">甘肃省教育网</option>
+            </optgroup>
+            </select>
+        </div>
+        <div id="znjs">
+        站内检索：<input type="text" class="search" placeholder="关键字" />   
+    </div>
+    <div class="ewm1">
+        <img src="img/ewm1.jpg" alt="" />
+    </div>
+     <div class="ewm2">
+        <img src="img/ewm2.jpg" alt="" />
+    </div>
+    <div class="bq">
+       Power by 兰州城市学院 Copyright © Lzcsxy
+    </div>
+    </footer>
+    </body>
+</html>

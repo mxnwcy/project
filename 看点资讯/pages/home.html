@@ -1,0 +1,267 @@
+<div id="home">
+	<div class="outer">
+		<div class="row">
+			<div class="col-sm-3">
+				<!-- 3个div -->
+				<div class="totalDiv bg-white">
+					<div class="iconDiv bg-green"><i class="iconfont icon-cloud"></i></div>
+					<div class="numDiv">
+						<span>99.9%</span>
+						<small>SERVER UPTIME</small>
+					</div>
+				</div>
+				<div class="totalDiv bg-white">
+					<div class="iconDiv bg-zi"><i class="iconfont icon-yonghu1"></i></div>
+					<div class="numDiv">
+						<span>117K</span>
+						<small>USERS TOTAL</small>
+					</div>
+				</div>
+				<div class="totalDiv bg-white">
+					<div class="iconDiv bg-lan"><i class="iconfont icon-xiangji"></i></div>
+					<div class="numDiv">
+						<span>2,470</span>
+						<small>NEW DAILY PHOTOS</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="visDiv">
+					<div id="visContainer"></div>
+					<div class="numDiv">
+						<span>14.85%</span>
+						<small>More Visitors</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="uptimeDiv">
+					<div id="uptimeContainer"></div>
+					<div class="numDiv">
+						<span>95.8%</span>
+						<small>CURRENT SERVER UPTIME</small>
+					</div>
+				</div>
+				<div class="salesDiv">
+					<div id="salesContainer"></div>
+					<div class="numDiv">
+						<span>320,45</span>
+						<small>AVG.OF SALES</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6"></div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
+
+</div>
+<script>
+	$(function(){
+		drawVis();
+		drawUptime();
+		drawSales();
+		function drawVis(){
+			// 绘制
+			var chart = Highcharts.chart('visContainer', {
+				chart:{
+					margin:[0,0,0,0],
+				},
+				credits:{
+					enabled:false,
+				},
+				colors:['#66bb0d','#cccccc'],
+				title: {
+					text: ''
+				},
+				xAxis: {
+					visible:false,
+				},
+				yAxis: {
+					visible:false,
+					title: {
+						text: ''
+					}
+				},
+				legend: {
+					floating:true,
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top'
+				},
+				plotOptions: {
+					series: {
+						label: {
+							connectorAllowed: false
+						},
+						pointStart: 2010
+					}
+				},
+				series: [{
+					name: 'Page',
+					data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175,124916, 94064, 89742, 69851, 49490, 37282, 38121, 40434]
+				}, {
+					name: 'Visitors',
+					data: [24916, 24064, 29742, 32851, 52490, 60282, 68121, 80434,73934, 62503, 67177, 49658, 37031, 29931, 27133, 24175]
+				}]
+			});
+		}
+		function drawSales(){
+			var chart = Highcharts.chart('salesContainer', {
+				credits:{
+					enabled:false,
+				},
+				colors:['#5c9c49','#84c46f','#296a14','#2b6915','#9cdc87','#8ece7b'],
+				chart: {
+					margin : [0, 0 , 0, 100]
+				},
+				title: {
+					floating:true,
+					text: ''
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+						},
+					}
+				},
+				series: [{
+					type: 'pie',
+					innerSize: '45%',
+					name: 'Sales',
+					data: [
+						['Firefox',45.0],
+						['IE',26.8],
+						['Chrome',12.8],
+						['Safari',8.5],
+						['Opera',6.2],
+						['其他',0.7]
+					]
+				}]
+			});
+		}
+		function drawUptime(){
+			var chart = Highcharts.chart('uptimeContainer', {
+				chart:{
+					margin:[0,0,0,0],
+				},
+				credits:{
+					enabled:false,
+				},
+				colors:['#862eb7'],
+				title: {
+					text: ''
+				},
+				plotOptions: {
+					column: {
+						pointWidth:10
+					}
+				},
+				xAxis: {
+					visible:false,
+				},
+				yAxis: {
+					visible:false,
+				},
+				series: [{
+					type: 'column',
+					colorByPoint: true,
+					data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4,148.5, 216.4, 194.1, 95.6, 54.4],
+					showInLegend: false
+				}]
+			});
+		}
+	});
+</script>
+<style>
+	#home{
+
+	}
+	.outer{
+		width: 96%;
+		margin: 0 auto;
+	}
+	.bg-white{
+		background: #fff;
+	}
+	.bg-green{
+		background: #66ba10;
+	}
+	.bg-zi{
+		background: #7c31bf;
+	}
+	.bg-lan{
+		background: #38b9ea;
+	}
+	/*左上方的三个div*/
+	.totalDiv{
+		overflow: hidden; 
+		padding: 15px;
+		margin-bottom: 15px;
+	}
+	.totalDiv .iconDiv,.totalDiv .numDiv{
+		float: left;
+	}
+	.iconDiv{
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		text-align: center;
+	}
+	.iconDiv i{
+		line-height: 40px;
+		font-size: 22px;
+		color: #fff;
+	}
+	.totalDiv .numDiv{
+		margin-left: 15px;
+		padding-top: 5px;
+	}
+	.numDiv span{
+		font-size: 20px;
+		line-height: 20px;
+	}
+	.numDiv small{
+		display: block;
+		color: #9b9c97;
+		font-size: 8px;
+	}
+	/*上面中间的那个折线图*/
+	#visContainer{
+		height: 240px;
+		/*background: pink;*/
+	}
+	/*上面右边那两儿*/
+	.visDiv,.uptimeDiv,.salesDiv{
+		position: relative;
+	}
+	.visDiv .numDiv,.uptimeDiv .numDiv,.salesDiv .numDiv{
+		position: absolute;
+		top:15px;
+		left: 15px;
+	}
+	.visDiv span,.salesDiv span{
+		color: #66ba10;
+	}
+	.uptimeDiv{
+		margin-bottom: 20px;
+	}
+	#uptimeContainer,#salesContainer{
+		height: 110px;
+	}
+	.uptimeDiv span,.salesDiv span{
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.uptimeDiv span{
+		color: #7c31bf;
+	}
+</style>

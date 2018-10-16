@@ -1,0 +1,208 @@
+/* 
+* @Author: Marte
+* @Date:   2017-12-05 20:13:03
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-12-08 01:10:08
+*/
+@charset "utf-8";
+h1{
+    display: none;
+}
+.tou{
+    background: url(../images/1.jpg);
+    height: 25px;
+}
+.tou ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    top: 0;
+    left:1050px;
+
+}
+.tou ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+.tou ul li{
+    float: left;
+    width: 70px;
+    height: 25px;
+    text-align: center;    
+}
+body{
+    margin: 0 auto;
+    padding: 0;
+   
+}
+.logo img{
+    position: absolute;
+    top: 26px;
+    left: 175px;    
+}
+
+.nav{
+    width: 1000px;
+    height: 40px;
+    background:url(../images/nav.jpg) repeat-x;
+    position: absolute;
+    top: 122px;
+    left:175px;
+
+}
+.nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left:40px ;
+    top: 0;
+
+}
+.nav ul li{
+    float: left;
+}
+.nav ul li a{
+    display: block;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav ul li a:visited{
+    display: block;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    color: white;
+}
+.nav ul li a:hover{
+    background:url(../images/nav1.jpg) repeat-x;
+    text-decoration: underline;
+}
+
+.hong img{
+    position: absolute;
+    top: 160px;
+    left: 175px;
+}
+.xxyw img{
+   position: absolute;
+    top: 430px;
+    left: 175px;
+}
+.yw img{
+    position: absolute;
+    top: 470px;
+    left: 175px;
+}
+.yw1{
+    position: absolute;
+    top: 470px;
+    left: 720px;
+}
+.yw1 table tr td{
+    font-size: 12px;
+    height: 21px;
+    border-bottom: 1px dashed gray;
+}
+.tp{
+    position: absolute;
+    top: 790px;
+    left: 180px;
+}
+.tp table{
+    position: absolute;
+    top: -7px;
+    left: 200px;
+    border-spacing: 5px;
+}
+
+.san{
+    position:absolute;
+    top: 970px;
+    left: 175px;
+}
+.bg1{
+    position: absolute;
+    top: 35px;
+    left: 0;
+}
+.bg1 tr td{
+    font-size: 12px;
+    height: 21px;
+    border-bottom: 1px dashed gray;
+}
+.bg2{
+    position: absolute;
+    top: 35px;
+    left: 340px;
+}
+.bg2 tr td{
+    font-size: 12px;
+    height: 21px;
+    border-bottom: 1px dashed gray;
+}
+.bg3{
+    position: absolute;
+    top: 35px;
+    left: 680px;
+}
+.bg3 tr td{
+    font-size: 12px;
+    height: 21px;
+    border-bottom: 1px dashed gray;
+}
+.lg{
+    width: 1000px;
+    height: 6px;
+    background-color: #9393FF;
+    position: absolute;
+    top: 1240px;
+    left: 175px;
+}
+footer{
+    background:url(../images/footer.jpg) ;
+    width: 1000px;
+    height: 270px;
+    position: absolute;
+    top: 1247px;
+    left: 175px;
+
+}
+.gx{
+    position: absolute;
+    top: 50px;
+    left: 90px;
+}
+.lj{
+    position: absolute;
+    top: 50px;
+    left: 350px;
+}
+#search{
+    position: absolute;
+    top: 50px;
+    left: 650px;
+}
+.bq{
+    position: absolute;
+    top: 110px;
+    left: 100px;
+    font-size: 13px;
+    line-height: 25px;
+
+}
+.ewm{
+    position: absolute;
+    top: 110px;
+    left: 650px;
+    font-size: 13px;
+}

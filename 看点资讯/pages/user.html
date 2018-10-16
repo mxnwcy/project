@@ -1,0 +1,258 @@
+<div id="user">
+	<div class="outer">
+		<button class="addBtn">新增</button>
+		<div class="row mainTop">
+			<!-- 缩略图 -->
+		</div>
+		<div class="modal" id="userModal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    	<div class="modal-header text-center">
+		    	 	<div class="backDiv">&lt;&nbsp;返回</div>
+		    	 	<div class="title">添加用户</div>
+		    	</div>
+		    	<div class="modal-body">
+		    	 	<form class="form">
+		    	 		<div class="form-group">
+		    	 			<label for="">用户名</label>
+		    	 			<input type="text" name="username" class="form-control">
+		    	 		</div>
+		    	 		<div class="form-group">
+		    	 			<label for="">密码</label>
+		    	 			<input type="password" name="password" class="form-control">
+		    	 		</div>
+		    	 		<div class="form-group">
+		    	 			<label for="">重复密码</label>
+		    	 			<input type="password" name="password1" class="form-control">
+		    	 		</div>
+		    	 		<div class="form-group">
+		    	 			<label for="">真实姓名</label>
+		    	 			<input type="text" name="nickname" class="form-control">
+		    	 		</div>
+		    	 		<div class="form-group">
+		    	 			<label for="">email</label>
+		    	 			<input type="email" name="email" class="form-control">
+		    	 		</div>
+		    	 		<!-- 写一个隐藏的重置按钮，通过模拟触发这个按钮来清空表单中的内容 -->
+		    	 		<div class="form-group hide">
+		    	 			<button type="reset"></button>
+		    	 		</div>
+		    	 	</form>
+		    	</div>
+		    	<div class="modal-footer">
+		    		<span class="message"></span>
+		    		<button class="saveBtn">确认</button>
+		    	</div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 新增用户信息提交成功提示框 -->
+	<div class="alertDiv">
+		<div class="alert alert-success">
+			<strong>提示：</strong>
+			<span>执行成功</span>	
+		</div>
+	</div>
+</div>
+<script>
+	$(function(){
+		// 在打开模态框之前就获取模态框的高度使之等于浏览器视口的高度
+		$('.modal-content').height($(window).height());
+		// 显示模态框，给新增按钮绑定事件
+		$('.addBtn').click(function(event) {
+			// 重置表单内容
+			$('button[type=reset]').trigger('click');
+			// 清除提示信息
+			$('.message').html("");
+			$('body').addClass('modal-open');
+			$('#userModal').show();
+		});
+		// 关闭模态框
+		$('.backDiv').click(function(){
+			$('#userModal').hide();
+			$('body').removeClass('modal-open');
+		});
+
+		// 点击确认提交数据
+		$('.saveBtn').click(function(){
+			// 获取用户所填的值
+			var username = $('input[name=username]').val();
+			var password = $('input[name=password]').val();
+			var password1 = $('input[name=password1]').val();
+			var nickname = $('input[name=username]').val();
+			var email = $('input[name=username]').val();
+			var messageSpan = "";
+			// 先判断提交的内容
+			if(username&&password&&password1&&nickname&&email){
+				if(password==password1){
+					// 把用户填写的数据封装成一个对象
+					var obj = {
+						username: username,
+						password: password,
+						nickname: nickname,
+						email: email
+					};
+					// 向后台提交数据
+					$.post(baseURL+'/manager/user/saveOrUpdateUser',obj, function(res){
+						console.log(res,'提交成功');
+						// 刷新页面
+						loadData();
+						// 关闭模态框
+						$('#userModal').hide();
+						$('body').removeClass('modal-open');
+						// 弹出提交成功的提示
+						$('.alertDiv').addClass('animated slideInRight');
+						$('.alertDiv').show();
+						setTimeout(function(){
+							$('.alertDiv').fadeOut();
+						},4000);
+					});
+				}else{
+					messageSpan = '两次密码不一致';
+				}
+			}else{
+				messageSpan = '请完善信息';
+			}
+			$('.message').html(messageSpan);
+			
+
+		});
+
+
+
+		// 监听开关按钮的更改事件
+		$('#user').on({'switchChange.bootstrapSwitch':function(event,state){
+				console.log(state);
+				// 点击之后，向后台传递参数
+				// this-->input
+				var id = $(this).closest('.switch').prev('input').val();
+				// 封装成对象给后台，属性名是由后台接口决定，属性值是前端采集的数据
+				var obj = {
+					id: id,
+					status: state,
+				};
+				$.post(baseURL+'/manager/user/changeStatus',obj,function(res){
+						console.log(res,'执行成功');
+				});
+		}
+		},'[type=checkbox]');
+
+		// 从后台加载数据，把用户信息显示出来
+		loadData();
+		function loadData(){
+			// 先清空,以免叠加
+			$('.mainTop').empty();
+			// 从后台获取数据
+			// 第一个参数是后台接口的url，第二个参数是给后台的数据，第三个是从后台获取数据成功的函数
+			$.get(baseURL+'/manager/user/findAllUser',function(res){
+				console.log(res.data);
+				// 遍历数据，创建缩略图
+				res.data.forEach(function(item,index){
+					// 创建模态框
+					var $thm = $(`<div class="col-sm-4">
+				<div class="thumbnail">
+			    	<img src="`+(item.userface?item.userface:'https://b-ssl.duitang.com/uploads/item/201601/06/20160106202112_8dLwK.jpeg')+`" alt="...">
+			    	<div class="caption">
+			    		<div class="row">
+			    			<div class="col-sm-4">用户名</div>
+			    			<div class="col-sm-7">`+(item.username?item.username:'-')+`</div>
+			    		</div>
+			    		<div class="row">
+			    			<div class="col-sm-4">真实姓名</div>
+			    			<div class="col-sm-7">`+(item.nickname?item.nickname:'-')+`</div>
+			    		</div>
+			    		<div class="row">
+			    			<div class="col-sm-4">注册时间</div>
+			    			<div class="col-sm-7">`+(item.regTime?item.regTime:'-')+`</div>
+			    		</div>
+			    		<div class="row">
+			    			<div class="col-sm-4">email</div>
+			    			<div class="col-sm-7">`+(item.email?item.email:'-')+`</div>
+			    		</div>
+			    		<div class="row">
+			    			<div class="col-sm-4">状态</div>
+			    			<div class="col-sm-7">
+			    				<!-- 用户id -->
+       							<input type="hidden" value="`+item.id+`">
+       							<!-- 开关按钮 -->
+       							<div class="switch">
+    								<input type="checkbox" data-on-color="success" data-on-text="开启" data-off-text="关闭">
+       							</div>
+			    			</div>
+			    		</div>
+			      </div>
+			    </div>
+			</div>`);
+					// 把创建的模态框添加到页面里
+					$('.mainTop').append($thm);
+					// 要初始化状态开关
+					$('#user input[type=checkbox]:last').bootstrapSwitch('state',false);
+				});
+			});
+		}
+	});
+</script>
+<style>
+	.outer{
+		margin: 15px 10px;
+		padding: 10px;
+		background: #ffffff;
+		border-radius: 5px;
+	}
+	#user>.outer>.row{
+		margin-top: 5px;
+	}
+	.thumbnail{
+		box-shadow: 0px 0px 5px rgba(204, 204, 204, 0.349019607843137);
+		background-color: rgba(255, 255, 255, 1);
+		border: 1px solid rgba(237, 237, 237, 1);
+		
+	}
+	.thumbnail>img{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+	}
+	.thumbnail .caption .row{
+		color: #666;
+		font-size: 12px;
+		height: 27px;	
+	}
+	.thumbnail .caption .row>div:first-child{
+		padding: 0 0 0 25px ;
+	}
+	.thumbnail .caption .row>div:last-child{
+		overflow: hidden;
+	}
+	/*模态框*/
+	.modal{
+		background: rgba(0,0,0,0.3);
+	}
+	.modal-dialog{
+		width: 300px;
+		margin-top: 0;
+		margin-right: 0;
+	}
+	/*.modal-content{
+		height: 100%;
+	}*/
+	.backDiv{
+		float: left;
+		cursor: pointer;
+	}
+	.modal-body{
+		color: #666;
+		font-size: normal;
+		z-index: 10;
+	}
+	.alertDiv{
+		display: none;
+		position: absolute;
+		top: 20px;
+		right: 0px;
+	}
+	.message{
+		color: red;
+	}
+</style>

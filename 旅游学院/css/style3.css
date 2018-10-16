@@ -1,0 +1,78 @@
+/* 
+* @Author: Marte
+* @Date:   2017-12-27 13:25:18
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-12-27 14:50:50
+*/
+@charset "utf-8";
+ul,ol,li{list-style:none}
+a{text-decoration:none;word-wrap:break-word;outline:none;hide-focus:expression(this.hideFocus=true);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;-o-transition:all 0.2s ease-in-out;-ms-transition:all 0.2s ease-in-out;}
+a:hover{text-decoration:none;}
+
+/* lanmu-content */
+.lanmu-content{
+    position: absolute;
+    top: 250px;
+    margin: 0 0 0 10px;
+    width:200px;}
+.lanmu-list{display:block;}
+.lanmu-list dt{display:block;height:40px;background:#0066CC;font:bold 18px/40px "宋体"; color:#fff;text-align: center;}
+.lanmu-list dd{padding-top:2px;}
+.lanmu-list dt a{
+    color: white;
+}
+.lanmu-list dd a{
+    display:block;
+    height:33px;
+    background:#f9f9f9;
+    border-bottom:1px solid #eee;
+    border-top:2px solid #fff;
+    border-left:2px solid #999;
+    border-right:1px solid #eee;
+    font:normal 15px/33px Georgia "宋体"; 
+    color:#adadad;
+    padding-left:25px; 
+    line-height: 33px;}
+.lanmu-list dd a:hover{padding-left:35px;}
+.lanmu-list dd a:hover,.lanmu-list dd a.current{border-left:2px solid #1160ba;background-color:#f6f6f6;color:#1160ba;font-weight:bold;}
+
+
+#center{
+    position: absolute;
+    top: 250px;
+    left: 400px;
+    width: 800px;
+}
+#center p{
+    text-indent: 30px;
+}
+#center hr{
+    width: 800px;  
+}
+
+.ldbz b{
+    position:absolute;
+    top: -3px;
+    left: 30px;
+    font-family: 楷体;
+    font-size: 23px;
+    font-weight: normal;
+}
+.ldbz table{
+    position: absolute;
+    top: 100px;
+    border-collapse: collapse;
+    /*border: 1px solid black*/
+}
+.ldbz table tr{
+    border-bottom: 1px dashed black;
+}
+.ldbz table tr td{
+    width: 350px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+

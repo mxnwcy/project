@@ -1,0 +1,292 @@
+<div id="category">
+	<!-- 栏目管理 -->
+	<div class="outer">
+		<button class="addBtn">新增</button>
+		<button class="bachDelBtn">批量删除</button>
+		<table class="table table-bordered table-condensed">
+			<tr class="hd">
+				<td>编号</td>
+				<td>栏目名称</td>
+				<td>父栏目</td>
+				<td>描述</td>
+				<td>操作</td>
+			</tr>
+
+		</table>
+		<!-- 新增模态框 -->
+		<div class="modal" id="categoryModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	<div class="modal-header text-center">
+		    		<div class="backDiv">&lt;&nbsp;返回</div>
+		    		<div class="title">添加栏目</div>
+		    	</div>
+		    	<div class="modal-body">
+		    		<form action="">
+		    			<div class="form-group">
+		    				<label for="">栏目名称</label>
+		    				<input type="text" class="form-control" name="categoryName">
+		    			</div>
+		    			<div class="form-group">
+		    				<label for="">父栏目</label>
+		    				<select name="categoryParent" id="" class="form-control">
+		    					<option value="">请选择</option>
+		    				</select>
+		    			</div>
+		    			<div class="form-group">
+		    				<label for="">描述</label>
+		    				<textarea rows="5" class="form-control" style="resize: none" name="categoryComment"></textarea>
+		    			</div>
+		    			<div class="form-group hide">
+		    				<!-- 一个隐藏的重置按钮 -->
+		    				<button type="reset"></button>
+		    			</div>
+		    		</form>
+		    	</div>
+		    	<div class="modal-footer">
+		    		
+		    		<!-- 放提示信息的span -->
+		    		<span class="message"></span>
+		    		<!-- 确认按钮 点击确认提交新增信息-->
+		    		<button class="saveBtn">确认</button>
+		    	</div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 新增用户信息提交成功提示框 -->
+	<div class="alertDiv">
+		<div class="alert alert-success">
+			<strong>提示：</strong>
+			<span></span>	
+		</div>
+	</div>
+</div>
+<script>
+	$(function(){
+		// 所有的栏目
+		var categories = [];
+		var option = '新增';
+		// 当前正在修改的对象的id
+		var currentId = '';
+		// 弹出框的动画
+		function alert(){
+			$('.alertDiv').addClass('animated slideInRight');
+			$('.alertDiv').show();
+			setTimeout(function(){
+				$('.alertDiv').fadeOut();
+			},4000);
+		}
+	
+		/*
+				点击新增的提交的时候，不传id
+				点击修改的提交的时候，传id
+
+				在点击提交按钮的时候，判断是新增还是修改，从而决定是否携带id给后台
+				
+				后台中关于新增和修改的区别在与有没有传id,传id就是修改，不传id就是新增。
+		 */ 
+
+
+
+		// 打开模态框之前获取模态框的高度使之等于浏览器视口的高度
+		$('.modal-content').height($(window).height());
+		// 给新增按钮绑定事件
+		$('.addBtn').click(function(){
+			option = '新增';
+			//清空表单，清空提示信息，清空select里面的内容（除了第一行），从后台获取所有的栏目，追加option，显示模态框
+			$('button[type=reset]').trigger('click');
+			$('#category .message').html("");
+			addOption();
+			
+		});
+		// 给返回绑定关闭模态框的事件
+		$('.backDiv').click(function(){
+			$('#categoryModal').hide();
+		});
+		// 保存  点击确认按钮 判断用户所填信息是否符合要求 向后台传递数据
+		$('.saveBtn').click(function(){
+			// 先获取用户所填的数据
+			var categoryName = $('input[name=categoryName]').val();
+			var categoryParent = $('select[name=categoryParent]').val();
+			var categoryComment = $('textarea[name=categoryComment]').val();
+	
+			// 表单验证
+			if(categoryName&&categoryComment){
+				// 信息完善，向后台传递数据
+				// 先把数据打包成一个对象
+				var obj = {
+					name: categoryName,
+					comment: categoryComment,
+					no:'',
+					parentId: categoryParent,
+				};
+				if(option=='修改'){
+					obj.id = currentId;
+				}
+				$.post(baseURL+'/manager/category/saveOrUpdateCategory',obj,function(res){
+					// 数据提交成功后刷新页面 关闭模态框 提示用户提交成功
+					loadData();
+					$('#categoryModal').hide();
+					$('#category .alertDiv span').html('提交成功');
+					alert();
+				});
+			}else{
+				$('#category .message').html('请输入完整的信息');
+			}
+			
+		});
+		// 修改
+		$('#category table').on({
+			click:function(){
+				option = '修改';
+				// 获取当前要修改的id，获取对应的对象，给模态框设置【select，获取所有栏目追加option，设置值】，模态框显示
+				// 清空提示信息
+				$('#category .message').html('');
+				var id = $(this).closest('tr').find('input[type=checkbox]').val();
+				currentId = id;
+				var cat = categories.filter(function(item) {
+					return item.id == id;
+				})[0];
+				// 设置值
+				$('input[name=categoryName]').val(cat.name);
+				$('textarea[name=categoryComment]').val(cat.comment);
+				addOption(function(){
+					$('select[name=categoryParent]').val(cat.parent?cat.parent.id:'');
+				});
+			}
+		},'i[title=修改]');
+
+		// 删除
+		$('#category table').on({
+			click:function(){
+				// 获取id，传给后台
+				var id = $(this).closest('tr').find('input[type=checkbox]').val();
+				var obj ={
+					id: id
+				};
+				$.get(baseURL+'/manager/category/deleteCategoryById',obj,function(res){
+					if(res.status==200){
+						loadData();
+						$('#category .alertDiv span').html('删除成功');
+						alert();
+					}else{
+						$('#category .alertDiv span').html('删除失败');
+						alert();
+						console.log(res.message);
+					}
+				});
+			}
+		},'i[title=删除]');
+
+		// 批量删除
+		$('.bachDelBtn').click(function(){
+			// 获取用户选择的checkbox，获取对应的id数组，转换成字符串给后台
+			var ids = $('#category input[type=checkbox]:checked').map(function(index,item){
+				return $(item).val();
+			}).get();
+			// id:'1,2,3'
+			var obj = {
+				ids:ids.toString()
+			};
+			$.post(baseURL+'/manager/category/batchDeleteCategory',obj,function(res){
+				if(res.status==200){
+					loadData();
+					$('#category .alertDiv span').html('批量删除成功');
+					alert();
+				}else{
+					console.log(res.message);
+					$('#category .alertDiv span').html('批量删除失败');
+					alert();
+				}
+			});
+		});
+
+
+
+		// 刷新页面
+		loadData();
+		// 追加option，显示模态框
+		function addOption(handle){
+			// 先清除出了第一个以外的option
+			$('#category select option:not(:first)').remove();
+			$.get(baseURL+'/manager/category/findAllCategory',function(res){
+				res.data.forEach(function(item){
+					var $option = $('<option value="'+item.id+'">'+item.name+'</option>');
+					$('#category select').append($option);
+				});
+				if(handle){
+					handle();
+				}	
+				$('#categoryModal').show();
+			});
+			
+		}
+
+		// 获取数据
+		function loadData(){
+			// 要先删除数据
+			$('#category table tr:not(:first)').remove();
+			// 第二步，从后台获取数据
+			$.get(baseURL+'/manager/category/findAllCategory',function(res){
+				// 循环遍历数据
+				categories = res.data;
+				res.data.forEach(function(item){
+					var $tab = $(`			<tr>
+				<td><input type="checkbox" value="`+item.id+`"></td>
+				<td>`+(item.name?item.name:'-')+`</td>
+				<td>`+(item.parent?item.parent.name:'-')+`</td>
+				<td>`+(item.comment?item.comment:'-')+`</td>
+				<td><i class="iconfont icon-ccgl-shujuzidianxiugaijilu-2" title="修改"></i><i class="iconfont icon-shanchu" title="删除"></i></td>
+			</tr>`);
+					$('#category table').append($tab);
+				});
+			});
+		}
+
+	});
+</script>
+<style>
+	.outer{
+		margin: 15px 10px;
+		padding: 10px;
+		background: #ffffff;
+		border-radius: 5px;
+		min-height: 700px;
+	}
+	table{
+		text-align: center;
+		font-size: 12px;
+		color: #666;
+	}
+	.modal{
+		background: rgba(0,0,0,0.3);
+	}
+	.modal-dialog{
+		width: 300px;
+		margin-top: 0;
+		margin-right: 0;
+	}
+	.backDiv{
+		float: left;
+		cursor: pointer;
+	}
+	.message{
+		color: red;
+	}
+	td i{
+		cursor: pointer;
+	}
+	td i:last-child{
+		margin-left: 20px;
+		
+	}
+	.alertDiv{
+		display: none;
+		position: absolute;
+		top: 20px;
+		right: 0px;
+	}
+</style>
+
+

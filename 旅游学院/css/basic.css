@@ -1,0 +1,149 @@
+/* 
+* @Author: Marte
+* @Date:   2017-12-22 10:27:57
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-12-27 15:00:56
+*/
+@charset "utf-8";
+
+body{
+    margin: 0 auto;
+    padding: 0;
+    width: 1100px;
+  /*  background: url(../img/bj.jpg) no-repeat;*/
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    display: none;
+}
+#logo{
+    margin: 0 auto;
+    background: url(../img/logo.jpg) no-repeat;
+    width: 1100px;
+    height: 170px;
+}
+#logo ul{
+    position: absolute;
+    top: 7px;
+    left: 1000px;
+}
+#logo ul li{
+    float: right;
+    width: 75px;
+}
+#logo ul li a{
+    color: white;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+
+dl,dd,dt{margin:0;padding:0;}
+
+.floating_ck{position:fixed;right:20px;top:30%;}
+.floating_ck dl dd{position:relative;width:80px;height:80px;background-color:#646577;border-bottom:solid 1px #555666;text-align:center;background-repeat:no-repeat;background-position:center 20%;cursor:pointer;}
+.floating_ck dl dd:hover{background-color:#4876FF;border-bottom:solid 1px white;}
+.floating_ck dl dd:hover .floating_left{display:block;}
+.words{background-image:url(../img/zxicon.png);}
+.quote{background-image:url(../img/kficon.png);}
+.return{background-image:url(../img/fanhui.png);}
+.floating_ck dd span{color:white;display:block;padding-top:54px;}
+.floating_ck dd a{
+    color: white;
+}
+
+#top_bg{
+    margin: 0 auto;
+    height:40px;
+    width:1100px;
+    background: #4876FF;
+    box-shadow:1px 1px 7px #999;
+    position:absolute;
+    top:170px;
+    z-index:999;
+    border-bottom:#C6C6C6 solid 1px;}
+.top{width:1100px;height:40px;margin:0 auto;}
+
+.nav_z{width:auto!important;height:40px;float:left;position:relative;z-index:999 ;}
+#navul li{float:left;width:122px;height:40px;position:relative;text-align:center;line-height:40px;}
+#navul li a:link, #navul li a:visited{color:#FFF;font-weight:500;letter-spacing:2px;}
+#navul li ul{display:none;position:absolute;z-index:999;background:#e6e6e6;border:#c6c6c6 1px solid;border-bottom:none;left:-1px;}
+#navul li ul li{display:block;width:122px;float:none;height:35px;position:relative;line-height:35px;border-bottom:#C6C6C6 1px solid;font-size:14px;overflow:hidden}
+#navul li.navmoon{background:#E6E6E6;border:#C6C6C6 1px solid;width:122px;height:38px;line-height:38px;}
+#navul li.navmoon a{color:#404a58;}
+#navul li.navhome a:hover{color:#FCFF00;}
+#navul li.navmoon ul{display:block;}
+#navul li.navmoon ul a{display:block;width:122px;height:35px;line-height:35px;}
+#navul li.navmoon ul a:hover{color:#0573bd;background:#FFF;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    background:#4876FF;
+    width: 1100px;
+    height: 220px;
+    position:absolute;
+    top: 1050px;
+
+}
+.gx{
+    font-size: 18px;
+    color:white;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+.lj{
+    font-size: 18px;
+    color:white;
+    position: absolute;
+    left: 370px;
+    top:50px;
+}
+#znjs{
+    font-size: 18px;
+    color:white;
+    position: absolute;
+    left: 740px;
+    top: 50px;
+}
+.bq{
+    color:white;
+    position: absolute;
+    left: 380px;
+    top: 140px;
+    font-size: 14px;
+}
+.ewm1{
+    position: absolute;
+    left: 200px;
+    top: 100px;
+}
+.ewm2{
+    position: absolute;
+    left: 750px;
+    top: 100px;
+}
